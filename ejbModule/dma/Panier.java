@@ -1,8 +1,8 @@
-package domaine;
+package dma;
 
 import javax.ejb.Stateful;
 
-import dma.PanierRemote;
+import domaine.Article;
 
 @Stateful
 public class Panier implements PanierRemote{

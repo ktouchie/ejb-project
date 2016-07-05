@@ -1,8 +1,7 @@
-package metier;
+package dma;
 
 import javax.ejb.Stateful;
 
-import dma.CalculTVARemote;
 import domaine.Prix;
 
 /**
