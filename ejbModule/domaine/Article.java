@@ -1,4 +1,4 @@
-package dma;
+package domaine;
 
 public class Article {
 	
