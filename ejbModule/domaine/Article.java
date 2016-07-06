@@ -1,6 +1,11 @@
 package domaine;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Article {
+	
+	NumberFormat formatter = new DecimalFormat("#0.00");
 	
 	public String id;
 	public String nom;
@@ -57,11 +62,11 @@ public class Article {
 	@Override
 	public String toString() {
 		if (quantite == 0) {
-			return "Article " + id + ": " + nom + ", " + prixHT
-					+ " € par unité";
+			return "Article " + id + ":  " + nom + "   " + formatter.format(prixHT)
+					+ " €  (par unité)";
 		} else {
-			return "Article " + id + ": " + nom + ", " + prixHT
-					+ " €, x" + quantite + " ==> " + (quantite*prixHT);
+			return "Article " + id + ":  " + nom + "   " + formatter.format(prixHT)
+					+ " €   x" + quantite + " ==> " + (quantite*prixHT);
 		}
 	}
 	
