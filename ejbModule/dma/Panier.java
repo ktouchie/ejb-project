@@ -20,7 +20,10 @@ public class Panier implements PanierRemote{
 	public void consulter() {
 		
 		for (Article a : panier) {
-			
+			int quantite = a.getQuantite();
+			String nom = a.getNom();
+			double prixItem = a.getPrixHT() * quantite;
+			System.out.println(quantite + " " + nom + " " + prixItem);
 		}
 	}
 
