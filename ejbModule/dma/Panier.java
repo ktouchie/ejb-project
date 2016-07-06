@@ -12,7 +12,11 @@ public class Panier implements PanierRemote{
 	ArrayList<Article> panier = new ArrayList<Article>();
 
 	@Override
-	public void ajouter(Article article) {
+	public void ajouter(Article article, int quantite, double remise) {
+		String id = article.getId();
+		String nom = article.getNom();
+		double prixHT = article.getPrixHT();
+		article = new Article(id, nom, prixHT, quantite, remise);
 		panier.add(article);
 	}
 
@@ -20,10 +24,7 @@ public class Panier implements PanierRemote{
 	public void consulter() {
 		
 		for (Article a : panier) {
-			int quantite = a.getQuantite();
 			String nom = a.getNom();
-			double prixItem = a.getPrixHT() * quantite;
-			System.out.println(quantite + " " + nom + " " + prixItem);
 		}
 	}
 
@@ -31,5 +32,4 @@ public class Panier implements PanierRemote{
 	public void vider() {
 		panier.clear();
 	}
-
 }

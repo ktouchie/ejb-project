@@ -1,20 +1,29 @@
 package domaine;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Article {
+	
+	NumberFormat formatter = new DecimalFormat("#0.00");
 	
 	public String id;
 	public String nom;
 	public double prixHT;
-	public double remise;
 	public int quantite;
 	
-	public Article(String id, String nom, double prixHT, double remise,
-			int quantite) {
+	public Article(String id, String nom, double prixHT) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prixHT = prixHT;
-		this.remise = remise;
+	}
+	
+	public Article(String id, String nom, double prixHT, int quantite, double remise) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prixHT = prixHT;
 		this.quantite = quantite;
 	}
 
@@ -41,15 +50,7 @@ public class Article {
 	public void setPrixHT(double prixHT) {
 		this.prixHT = prixHT;
 	}
-
-	public double getRemise() {
-		return remise;
-	}
-
-	public void setRemise(double remise) {
-		this.remise = remise;
-	}
-
+	
 	public int getQuantite() {
 		return quantite;
 	}
@@ -58,4 +59,15 @@ public class Article {
 		this.quantite = quantite;
 	}
 
+	@Override
+	public String toString() {
+		if (quantite == 0) {
+			return "Article " + id + ":  " + nom + "   " + formatter.format(prixHT)
+					+ " €  (par unité)";
+		} else {
+			return "Article " + id + ":  " + nom + "   " + formatter.format(prixHT)
+					+ " €   x" + quantite + " ==> " + (quantite*prixHT);
+		}
+	}
+	
 }
