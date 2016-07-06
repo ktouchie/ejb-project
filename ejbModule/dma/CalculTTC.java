@@ -19,7 +19,7 @@ public class CalculTTC implements CalculTTCRemote {
     
     public double calculerTTC(Prix prix) {
 
-		return (prix.getPrix_ht() * 0.20) + prix.getPrix_ht();
+		return (prix.getPrixHT() * 0.20) + prix.getPrixHT();
 
 	}
 
