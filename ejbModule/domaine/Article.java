@@ -6,7 +6,6 @@ public class Article {
 	public String nom;
 	public double prixHT;
 	public int quantite;
-	public double remise;
 	
 	public Article(String id, String nom, double prixHT) {
 		super();
@@ -21,7 +20,6 @@ public class Article {
 		this.nom = nom;
 		this.prixHT = prixHT;
 		this.quantite = quantite;
-		this.remise = remise;
 	}
 
 	public String getId() {
@@ -47,4 +45,24 @@ public class Article {
 	public void setPrixHT(double prixHT) {
 		this.prixHT = prixHT;
 	}
+	
+	public int getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
+	@Override
+	public String toString() {
+		if (quantite == 0) {
+			return "Article " + id + ": " + nom + ", " + prixHT
+					+ " € par unité";
+		} else {
+			return "Article " + id + ": " + nom + ", " + prixHT
+					+ " €, x" + quantite + " ==> " + (quantite*prixHT);
+		}
+	}
+	
 }
