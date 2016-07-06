@@ -8,14 +8,14 @@ import domaine.Article;
 public interface PanierRemote {
 	
 	
-	public void ajouter(Article article);
-		
+	public void ajouter(Article article, int quantite, double remise);		
 		
 
 	public void consulter();
 
 	
 	public void vider();
+
 		
 	}
 

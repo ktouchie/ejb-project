@@ -5,17 +5,23 @@ public class Article {
 	public String id;
 	public String nom;
 	public double prixHT;
-	public double remise;
 	public int quantite;
+	public double remise;
 	
-	public Article(String id, String nom, double prixHT, double remise,
-			int quantite) {
+	public Article(String id, String nom, double prixHT) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prixHT = prixHT;
-		this.remise = remise;
+	}
+	
+	public Article(String id, String nom, double prixHT, int quantite, double remise) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prixHT = prixHT;
 		this.quantite = quantite;
+		this.remise = remise;
 	}
 
 	public String getId() {
@@ -41,21 +47,4 @@ public class Article {
 	public void setPrixHT(double prixHT) {
 		this.prixHT = prixHT;
 	}
-
-	public double getRemise() {
-		return remise;
-	}
-
-	public void setRemise(double remise) {
-		this.remise = remise;
-	}
-
-	public int getQuantite() {
-		return quantite;
-	}
-
-	public void setQuantite(int quantite) {
-		this.quantite = quantite;
-	}
-
 }
