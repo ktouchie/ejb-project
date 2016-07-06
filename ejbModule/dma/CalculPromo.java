@@ -23,6 +23,9 @@ public class CalculPromo {
 		
 		//date pour juin
 		
+		LocalDate dateMinJuin = LocalDate.of(year, 4, 31);
+		LocalDate dateMaxJuin = LocalDate.of(year, 7, 1);
+		
 		//date pour juin fin
 		if(
 				(
@@ -32,7 +35,7 @@ public class CalculPromo {
 			|
 			
 				(
-						date.isAfter(dateMinJanvier)&& date.isBefore(dateMaxJanvier)
+						date.isAfter(dateMinJuin)&& date.isBefore(dateMaxJuin)
 			
 		  
 				)
