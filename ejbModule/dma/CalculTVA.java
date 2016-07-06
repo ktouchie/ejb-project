@@ -1,5 +1,6 @@
 package dma;
 
+import javax.ejb.Remote;
 import javax.ejb.Stateful;
 
 import domaine.Prix;
@@ -21,6 +22,7 @@ public class CalculTVA implements CalculTVARemote {
 	
 	public double calculerTVA(Prix prix){
 		return prix.getPrix_ht() * this.taux_tva;
+				//prix.getPrix_ht() * this.taux_tva;
 		 
 	}
     

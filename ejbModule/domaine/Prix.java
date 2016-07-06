@@ -1,10 +1,18 @@
 package domaine;
 
-public class Prix {
+import java.io.Serializable;
 
-	//non utilisé dans CalculTVA
+// implements Serializable because Prix objects are not primitifs. 
+public class Prix implements Serializable {
+
+	// non utilisé dans CalculTVA
 	private int id_article;
 	private double prix_ht;
+
+	//Constructs objects Prix without args 
+	public Prix() {
+
+	}
 
 	public Prix(int id_article, double prix_ht) {
 		super();

@@ -4,10 +4,20 @@ import javax.ejb.Stateful;
 
 import domaine.Prix;
 
+/**
+ * Session Bean implementation class CalculTTC
+ */
 @Stateful
-public class CalculTTC  {
+public class CalculTTC implements CalculTTCRemote {
 
-	public double calculTTC(Prix prix) {
+    /**
+     * Default constructor. 
+     */
+    public CalculTTC() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public double calculerTTC(Prix prix) {
 
 		return (prix.getPrix_ht() * 0.20) + prix.getPrix_ht();
 
