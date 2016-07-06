@@ -7,17 +7,17 @@ public class Prix implements Serializable {
 
 	// non utilisé dans CalculTVA
 	private int id_article;
-	private double prixHT;
+	private double prix_ht;
 
 	//Constructs objects Prix without args 
 	public Prix() {
 
 	}
 
-	public Prix(int id_article, double prixHT) {
+	public Prix(int id_article, double prix_ht) {
 		super();
 		this.id_article = id_article;
-		this.prixHT = prixHT;
+		this.prix_ht = prix_ht;
 	}
 
 	public int getId_article() {
@@ -28,12 +28,12 @@ public class Prix implements Serializable {
 		this.id_article = id_article;
 	}
 
-	public double getPrixHT() {
-		return prixHT;
+	public double getPrix_ht() {
+		return prix_ht;
 	}
 
-	public void setPrixHT(double prixHT) {
-		this.prixHT = prixHT;
+	public void setPrix_ht(double prix_ht) {
+		this.prix_ht = prix_ht;
 	}
 
 }
