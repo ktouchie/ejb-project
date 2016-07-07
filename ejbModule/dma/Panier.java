@@ -7,29 +7,26 @@ import javax.ejb.Stateful;
 import domaine.Article;
 
 @Stateful
-public class Panier implements PanierRemote{
-	
-	ArrayList<Article> panier = new ArrayList<Article>();
+public class Panier implements PanierRemote {
 
-	@Override
-	public void ajouter(Article article, int quantite, double remise) {
-		String id = article.getId();
-		String nom = article.getNom();
-		double prixHT = article.getPrixHT();
-		article = new Article(id, nom, prixHT, quantite, remise);
-		panier.add(article);
-	}
+    ArrayList<Article> panier = new ArrayList<Article>();
 
-	@Override
-	public void consulter() {
-		
-		for (Article a : panier) {
-			String nom = a.getNom();
-		}
-	}
+    @Override
+    public void ajouter(Article article, int quantite, double remise) {
+	String id = article.getId();
+	String nom = article.getNom();
+	double prixHT = article.getPrixHT();
+	article = new Article(id, nom, prixHT, quantite, remise);
+	panier.add(article);
+    }
 
-	@Override
-	public void vider() {
-		panier.clear();
-	}
+    @Override
+    public ArrayList<Article> consulter() {
+	return panier;
+    }
+
+    @Override
+    public void vider() {
+	panier.clear();
+    }
 }
