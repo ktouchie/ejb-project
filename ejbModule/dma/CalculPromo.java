@@ -1,7 +1,10 @@
 package dma;
 
 import java.time.LocalDate;
+import java.time.Month;
+
 import javax.ejb.Stateful;
+
 import domaine.Prix;
 
 
@@ -16,34 +19,27 @@ public class CalculPromo {
 	 * @return l
 	 */
 	
-	public double taux_discount(Prix prix, double taux, LocalDate date, int year) {
+	public double taux_discount(Prix prix, double taux, LocalDate date, int year) {		
+		
+		double prixHT = prix.getPrixHT();
 
-		LocalDate dateMinJanvier = LocalDate.of(year, 12, 31);
-		LocalDate dateMaxJanvier = LocalDate.of(year, 2, 1);
+		LocalDate dateMinJanvier = LocalDate.of(year, Month.DECEMBER, 31);
+		LocalDate dateMaxJanvier = LocalDate.of((year + 1), Month.FEBRUARY, 1);
 		
 		//date pour juin
 		
-		LocalDate dateMinJuin = LocalDate.of(year, 4, 31);
-		LocalDate dateMaxJuin = LocalDate.of(year, 7, 1);
+		LocalDate dateMinJuin = LocalDate.of(year, Month.APRIL, 31);
+		LocalDate dateMaxJuin = LocalDate.of(year, Month.JUNE, 1);
 		
 		//date pour juin fin
-		if(
-				(
-						date.isAfter(dateMinJanvier) && date.isBefore(dateMaxJanvier)
-				)
-				
-			|
-			
-				(
-						date.isAfter(dateMinJuin)&& date.isBefore(dateMaxJuin)
-			
-		  
-				)
-			)
-		
-		
-			
-		return (prix.getPrix_ht() *taux);
+		if (
+				(dateMinJanvier.isBefore(date) && date.isBefore(dateMaxJanvier))	||
+				(dateMinJuin.isBefore(date)&& date.isBefore(dateMaxJuin))
+			) {	
+			return (prixHT *taux);
+		} else {
+			return prixHT;
+		}
 
 	}
 	
